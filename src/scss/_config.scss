@@ -1,0 +1,26 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;1,300&family=Outfit:wght@400;700&display=swap');
+
+//Shared Colors
+$accent-color: #4d4fff;
+$subtext-color: #afafaf;
+$green-color: #66ff4d;
+$red-color: #ff4d4d;
+
+//Light Mode
+$background-color: #fff;
+$text-color: #121212;
+$book-background: #fff;
+
+//Dark Mode
+$background-color-dark: #121212;
+$color-dark: #fafafa;
+$book-background-dark: #272727;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
