@@ -2,39 +2,19 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta
-            http-equiv="X-UA-Compatible"
-            content="IE=edge"
-        />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My Library</title>
     </head>
     <body class="body">
         <main class="main">
             <div class="background-form"></div>
-            <h1 class="main__title font-400">
-                My Library
-            </h1>
-            <button class="main__button button">
-                Add new book
-            </button>
+            <h1 class="main__title font-400">My Library</h1>
+            <button class="main__button button">Add new book</button>
             <div class="main__books">
-                <h2
-                    class="main__books--title font-400"
-                >
-                    Books
-                </h2>
-                <button
-                    class="theme-button button"
-                >
-                    <img
-                        class="theme-icon"
-                        src="../src/img/moon.svg"
-                        alt=""
-                    />
+                <h2 class="main__books--title font-400">Books</h2>
+                <button class="theme-button button">
+                    <img class="theme-icon" src="../src/img/moon.svg" alt="" />
                 </button>
             </div>
             <div class="filter-button">
@@ -49,34 +29,22 @@
             <div></div>
 
             <div class="form-container">
-                <h2
-                    class="form-container__title font-400"
-                >
-                    New Book
-                </h2>
-                <form action="">
-                    <span
-                        class="form-container__label"
-                        >Book Name</span
-                    >
+                <h2 class="form-container__title font-400">New Book</h2>
+                <button class="form-container__close-btn button">&times</button>
+                <form class="form" novalidate>
+                    <span class="form-container__label">Book Name</span>
                     <input
-                        class="form-container__input"
+                        class="form-container__input input-name"
                         type="text"
                         required
                     />
-                    <span
-                        class="form-container__label"
-                        >Book Author</span
-                    >
+                    <span class="form-container__label">Book Author</span>
                     <input
-                        class="form-container__input"
+                        class="form-container__input input-author"
                         type="text"
                         required
                     />
-                    <label
-                        for="book-status"
-                        class="form-container__label"
-                    >
+                    <label for="book-status" class="form-container__label">
                         Have you read it?
                         <input
                             class="form-container__checkbox"

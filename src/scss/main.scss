@@ -4,8 +4,7 @@
 body {
     background-color: $background-color;
     color: $text-color;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
 }
 
@@ -18,16 +17,19 @@ body {
     border: 0;
     padding: 0;
     cursor: pointer;
-    background: $background-color;
+}
 
-    &__dark {
-        background: $background-color-dark;
-    }
+.theme-button {
+    background: $background-color;
+}
+
+.darkDefault {
+    background: $background-color-dark;
+    color: $color-dark;
 }
 
 .filter-button {
-    display: flex;
-    justify-content: space-between;
+    @include space-between;
     padding: 0.5rem 0;
     align-items: center;
     width: 5rem;
@@ -46,20 +48,18 @@ body {
     }
 
     &__button {
-        display: block;
         padding: 0.75rem 1rem;
         border-radius: 2rem;
         background-color: $accent-color;
         color: #fff;
         font-size: 1rem;
-        margin-bottom: 1rem;
     }
 
     &__books {
-        display: flex;
-        justify-content: space-between;
+        @include space-between;
         padding: 0.5rem 0;
         border-bottom: 2px solid #eaeaea;
+        margin-top: 0.5rem;
         &--title {
             font-size: 2rem;
         }

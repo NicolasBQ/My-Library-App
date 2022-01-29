@@ -24,3 +24,13 @@ $book-background-dark: #272727;
     margin: 0;
     padding: 0;
 }
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin space-between {
+    display: flex;
+    justify-content: space-between;
+}

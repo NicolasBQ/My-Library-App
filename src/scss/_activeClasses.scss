@@ -1,8 +1,3 @@
-.dark-body {
-    background-color: $background-color-dark;
-    color: $color-dark;
-}
-
 .background-form {
     width: 100%;
     height: 100vh;
@@ -22,19 +17,35 @@
 .form-container {
     width: 70%;
     max-width: 20rem;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     padding: 2rem 1.5rem;
-    border: 2px solid black;
     text-align: center;
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    background-color: $background-color;
+    transition: transform 0.5s ease-in-out;
+
+    &__active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close-btn {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 2rem;
+        background-color: transparent;
+        color: $text-color;
+        position: relative;
+        bottom: 50px;
+        left: 85%;
+    }
 
     &__title {
-        color: $text-color;
         margin-bottom: 1rem;
-
-        &__active {
-            color: $color-dark;
-        }
     }
 
     &__input {
@@ -43,7 +54,17 @@
         border-radius: 1rem;
         border: none;
         box-shadow: 0 4px 10px rgba(#000000, 0.25);
+        padding: 1rem;
+        font-family: inherit;
         margin-bottom: 2rem;
+        &-dark {
+            background-color: $book-background-dark;
+            color: $color-dark;
+        }
+    }
+
+    &__checkbox {
+        margin-left: 0.5rem;
     }
 
     &__label {
@@ -51,14 +72,35 @@
         font-family: 'Barlow', sans-serif;
         font-weight: 300;
         font-style: italic;
-        color: $text-color;
         font-size: 0.75rem;
         text-align: left;
-
-        &__dark {
-            color: $subtext-color;
-        }
     }
+
+    &-button {
+        margin-top: 2rem;
+    }
+}
+
+.error-message {
+    display: block;
+    font-size: 0.9rem;
+    color: $red-color;
+    font-style: italic;
+    font-family: 'Barlow', sans-serif;
+    text-align: right;
+    position: relative;
+    bottom: 30px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+
+    &-hide {
+        opacity: 0;
+    }
+}
+
+.input-error {
+    border: 2px solid $red-color;
+    background: url(../img/icon-error.svg) no-repeat 95% 50%;
 }
 
 //Arrglar Botón

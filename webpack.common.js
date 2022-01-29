@@ -1,14 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
-    CleanWebpackPlugin,
-} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
         index: './src/js/index.js',
         darkMode: './src/js/darkMode',
+        formEvents: './src/js/formEvents',
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -23,11 +22,7 @@ module.exports = {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader',
-                ],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
