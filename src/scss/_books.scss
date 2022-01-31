@@ -1,0 +1,93 @@
+.books-container {
+    width: 100%;
+    list-style: none;
+
+    &__item {
+        @include space-between;
+        align-items: center;
+        padding: 1rem 2rem 0.5rem 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(#000000, 0.25);
+        font-family: 'Barlow', sans-serif;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        font-size: 1rem;
+        display: inline-block;
+    }
+
+    &__author {
+        font-size: 0.9rem;
+        font-style: italic;
+        color: $subtext-color;
+    }
+
+    &__circle {
+        display: inline-block;
+        margin-left: 0.2rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    &__green {
+        background-color: $green-color;
+        box-shadow: 0 2px 4px rgba($green-color, 0.25);
+    }
+
+    &__red {
+        background-color: $red-color;
+        box-shadow: 0 2px 4px rgba($red-color, 0.25);
+    }
+
+    &__delete {
+        background-color: transparent;
+    }
+}
+
+.filter-options {
+    list-style: none;
+    background-color: $subtext-color;
+    width: 8rem;
+    border-radius: 1rem;
+    position: absolute;
+    transform: translateY(-20%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.5s ease-in-out;
+
+    &__option {
+        padding: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($accent-color, 0.4);
+        }
+    }
+
+    &__active {
+        transform: translateY(0%);
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.option-read {
+    border-bottom: 2px solid #eaeaea;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.option-noread {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.filter-arrow {
+    transition: transform 0.5s ease-in-out;
+    pointer-events: none;
+
+    &__active {
+        transform: translate(180deg);
+    }
+}

@@ -1,5 +1,6 @@
 @import 'config';
 @import 'activeClasses';
+@import 'books';
 
 body {
     background-color: $background-color;
@@ -34,6 +35,10 @@ body {
     align-items: center;
     width: 5rem;
     cursor: pointer;
+
+    span {
+        pointer-events: none;
+    }
 }
 
 .main {

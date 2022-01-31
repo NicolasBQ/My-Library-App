@@ -8,6 +8,7 @@
     </head>
     <body class="body">
         <main class="main">
+            <!-- Default Markup -->
             <div class="background-form"></div>
             <h1 class="main__title font-400">My Library</h1>
             <button class="main__button button">Add new book</button>
@@ -19,47 +20,42 @@
             </div>
             <div class="filter-button">
                 <span>Filter by</span>
-                <img
-                    class="filter-arrow"
-                    src="../src/img/arrow.svg"
-                    alt="down-arrow"
-                />
+                <img class="filter-arrow" src="../src/img/arrow.svg" alt="down-arrow" />
             </div>
-
-            <div></div>
-
+            <ul class="filter-options">
+                <li class="filter-options__option option-read">
+                    Read
+                    <div class="books-container__circle books-container__green"></div>
+                </li>
+                <li class="filter-options__option option-noread">
+                    Not read
+                    <div class="books-container__circle books-container__red"></div>
+                </li>
+            </ul>
+            <!-- Form Markup -->
             <div class="form-container">
                 <h2 class="form-container__title font-400">New Book</h2>
                 <button class="form-container__close-btn button">&times</button>
                 <form class="form" novalidate>
                     <span class="form-container__label">Book Name</span>
-                    <input
-                        class="form-container__input input-name"
-                        type="text"
-                        required
-                    />
+                    <input class="form-container__input input-name" type="text" required />
                     <span class="form-container__label">Book Author</span>
-                    <input
-                        class="form-container__input input-author"
-                        type="text"
-                        required
-                    />
+                    <input class="form-container__input input-author" type="text" required />
                     <label for="book-status" class="form-container__label">
                         Have you read it?
                         <input
-                            class="form-container__checkbox"
+                            class="form-container__checkbox input-checkbox"
                             id="book-status"
                             type="checkbox"
                         />
                     </label>
-                    <button
-                        type="submit"
-                        class="main__button form-container-button button"
-                    >
+                    <button type="submit" class="main__button form-container-button button">
                         Add Book
                     </button>
                 </form>
             </div>
+            <!-- Books Container -->
+            <ul class="books-container"></ul>
         </main>
     </body>
 </html>

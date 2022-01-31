@@ -103,7 +103,7 @@
     background: url(../img/icon-error.svg) no-repeat 95% 50%;
 }
 
-//Arrglar Botón
-//Agregar estilos modo nocturno
-//Posicionar formulario
-//Activarlo con JS
+.dark-item {
+    background-color: $book-background-dark;
+    color: $color-dark;
+}

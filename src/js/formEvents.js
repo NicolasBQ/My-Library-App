@@ -1,33 +1,29 @@
+import { domElements } from './domElements';
+import { bookController } from './books';
+
 const openForm = () => {
-    const backgroundOpacity = document.querySelector('.background-form');
-    const formContainer = document.querySelector('.form-container');
-    const closeBtn = document.querySelector('.form-container__close-btn');
-    const bookName = document.querySelector('.input-name');
-    const bookAuthor = document.querySelector('.input-author');
+    Array.from(domElements().inputs).forEach((input) => (input.value = ''));
+    domElements().backgroundOpacity.classList.add('background-form__active');
+    domElements().formContainer.classList.add('form-container__active');
 
-    backgroundOpacity.classList.add('background-form__active');
-    formContainer.classList.add('form-container__active');
+    domElements().backgroundOpacity.addEventListener('click', closeForm);
+    domElements().formContainerCloseBtn.addEventListener('click', closeForm);
+};
 
-    backgroundOpacity.addEventListener('click', () => {
-        backgroundOpacity.classList.remove('background-form__active');
-        formContainer.classList.remove('form-container__active');
-        bookName.classList.remove('input-error');
-        bookAuthor.classList.remove('input-error');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        backgroundOpacity.classList.remove('background-form__active');
-        formContainer.classList.remove('form-container__active');
-        bookName.classList.remove('input-error');
-        bookAuthor.classList.remove('input-error');
-    });
+const closeForm = () => {
+    domElements().backgroundOpacity.classList.remove('background-form__active');
+    domElements().formContainer.classList.remove('form-container__active');
+    domElements().bookName.classList.remove('input-error');
+    domElements().bookAuthor.classList.remove('input-error');
 };
 
 const formValidate = (e) => {
     e.preventDefault();
 
-    const bookName = document.querySelector('.input-name');
-    const bookAuthor = document.querySelector('.input-author');
+    const bookName = domElements().bookName;
+    const bookAuthor = domElements().bookAuthor;
+    const bookStatus = domElements().bookStatus;
+    const formError = [bookName.checkValidity(), bookAuthor.checkValidity()].some((item) => !item);
 
     if (!bookName.checkValidity()) {
         inputError(bookName);
@@ -35,10 +31,12 @@ const formValidate = (e) => {
 
     if (!bookAuthor.checkValidity()) {
         inputError(bookAuthor);
-        return;
     }
 
-    console.log('poo');
+    if (!formError) {
+        bookController(bookName.value, bookAuthor.value, bookStatus.checked);
+        closeForm();
+    }
 };
 
 const inputError = (element) => {
@@ -62,4 +60,4 @@ const inputError = (element) => {
     }, 2000);
 };
 
-export { openForm, formValidate };
+export { openForm, closeForm, formValidate };
