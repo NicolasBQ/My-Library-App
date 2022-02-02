@@ -46,7 +46,8 @@ const enableDarkMode = () => {
         book.classList.add('dark-item');
     });
 
-    domElements().themeIcon.src = './img/sun.svg';
+    domElements().moon.style.display = 'none';
+    domElements().sun.style.display = 'block';
     // Change the value of the local Storage
     const lightMode = themeStorage('enabled');
     lightMode.setTheme();
@@ -68,7 +69,8 @@ const disableDarkMode = () => {
         book.classList.remove('dark-item');
     });
 
-    domElements().themeIcon.src = './img/moon.svg';
+    domElements().moon.style.display = 'block';
+    domElements().sun.style.display = 'none';
     // Change the value of the local Storage
     const darkMode = themeStorage(null);
     darkMode.setTheme();

@@ -1,6 +1,8 @@
 // Store all the DOM elements that are going to be used.
 const domElements = () => {
     const themeBtn = document.querySelector('.theme-button');
+    const moon = document.querySelector('.moon');
+    const sun = document.querySelector('.sun');
     const mainBtn = document.querySelector('.main__button');
     const form = document.querySelector('.form');
     const inputs = document.querySelectorAll('.form-container__input');
@@ -25,6 +27,8 @@ const domElements = () => {
 
     return {
         themeBtn,
+        moon,
+        sun,
         mainBtn,
         form,
         inputs,
