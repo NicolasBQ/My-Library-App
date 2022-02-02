@@ -29,18 +29,6 @@ body {
     color: $color-dark;
 }
 
-.filter-button {
-    @include space-between;
-    padding: 0.5rem 0;
-    align-items: center;
-    width: 5rem;
-    cursor: pointer;
-
-    span {
-        pointer-events: none;
-    }
-}
-
 .main {
     width: 80%;
     max-width: 50rem;
@@ -58,6 +46,11 @@ body {
         background-color: $accent-color;
         color: #fff;
         font-size: 1rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: rgba($accent-color, 0.5);
+        }
     }
 
     &__books {

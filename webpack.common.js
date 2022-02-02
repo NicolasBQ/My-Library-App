@@ -10,7 +10,6 @@ module.exports = {
         formEvents: './src/js/formEvents',
         books: './src/js/books',
         domElements: './src/js/domElements',
-        filter: './src/js/filter',
     },
     plugins: [
         new HtmlWebpackPlugin({

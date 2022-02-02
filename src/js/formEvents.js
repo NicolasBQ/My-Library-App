@@ -1,6 +1,6 @@
 import { domElements } from './domElements';
-import { bookController } from './books';
-
+import { addBook } from './books';
+// UI when the form is open
 const openForm = () => {
     Array.from(domElements().inputs).forEach((input) => (input.value = ''));
     domElements().backgroundOpacity.classList.add('background-form__active');
@@ -10,6 +10,7 @@ const openForm = () => {
     domElements().formContainerCloseBtn.addEventListener('click', closeForm);
 };
 
+// Remove the form UI. (Form closed)
 const closeForm = () => {
     domElements().backgroundOpacity.classList.remove('background-form__active');
     domElements().formContainer.classList.remove('form-container__active');
@@ -17,12 +18,14 @@ const closeForm = () => {
     domElements().bookAuthor.classList.remove('input-error');
 };
 
+// Form Validation
 const formValidate = (e) => {
     e.preventDefault();
 
     const bookName = domElements().bookName;
     const bookAuthor = domElements().bookAuthor;
     const bookStatus = domElements().bookStatus;
+    // True if some input validation is false - False if all the inputs validations are true
     const formError = [bookName.checkValidity(), bookAuthor.checkValidity()].some((item) => !item);
 
     if (!bookName.checkValidity()) {
@@ -32,13 +35,14 @@ const formValidate = (e) => {
     if (!bookAuthor.checkValidity()) {
         inputError(bookAuthor);
     }
-
+    // If form error is false, call addBook from book.js
     if (!formError) {
-        bookController(bookName.value, bookAuthor.value, bookStatus.checked);
+        addBook(bookName.value, bookAuthor.value, bookStatus.checked);
         closeForm();
     }
 };
 
+// UI when some input is wrong.
 const inputError = (element) => {
     if (element.nextElementSibling.dataset.error) return;
 

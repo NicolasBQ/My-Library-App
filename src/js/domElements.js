@@ -16,9 +16,12 @@ const domElements = () => {
     const booksContainer = document.querySelector('.books-container');
     const bookItems = document.querySelectorAll('.books-container__item');
     const bookDelete = document.querySelectorAll('.books-container__delete');
-    const statusLight = document.querySelectorAll('.books-container__circle');
+    const statusLight = document.querySelectorAll('.books-container .books-container__circle');
     const filterButton = document.querySelector('.filter-button');
     const filterOptions = document.querySelector('.filter-options');
+    const defaultOption = document.querySelector('.option-default');
+    const readOption = document.querySelector('.option-read');
+    const notreadOption = document.querySelector('.option-noread');
 
     return {
         themeBtn,
@@ -40,6 +43,9 @@ const domElements = () => {
         statusLight,
         filterButton,
         filterOptions,
+        defaultOption,
+        readOption,
+        notreadOption,
     };
 };
 

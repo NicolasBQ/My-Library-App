@@ -46,10 +46,7 @@ const enableDarkMode = () => {
         book.classList.add('dark-item');
     });
 
-    items.iconsArray.forEach((icon) => {
-        icon.element.src = icon.darkSrc;
-    });
-
+    domElements().themeIcon.src = '../src/img/sun.svg';
     // Change the value of the local Storage
     const lightMode = themeStorage('enabled');
     lightMode.setTheme();
@@ -71,10 +68,7 @@ const disableDarkMode = () => {
         book.classList.remove('dark-item');
     });
 
-    items.iconsArray.forEach((icon) => {
-        icon.element.src = icon.lightSrc;
-    });
-
+    domElements().themeIcon.src = '../src/img/moon.svg';
     // Change the value of the local Storage
     const darkMode = themeStorage(null);
     darkMode.setTheme();
@@ -89,20 +83,7 @@ const itemsArray = () => {
         domElements().formContainerCloseBtn,
     ];
 
-    const iconsArray = [
-        {
-            element: domElements().themeIcon,
-            darkSrc: '../src/img/sun.svg',
-            lightSrc: '../src/img/moon.svg',
-        },
-        {
-            element: domElements().filterBtn,
-            darkSrc: '../src/img/arrow-white.svg',
-            lightSrc: '../src/img/arrow.svg',
-        },
-    ];
-
-    return { defaultArray, iconsArray };
+    return { defaultArray };
 };
 
 export { themeToggle, themeEvent };

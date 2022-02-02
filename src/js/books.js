@@ -2,9 +2,8 @@ import { domElements } from './domElements';
 import { themeToggle } from './darkMode';
 
 // Loads all the functions to interact with the books.
-const bookController = (name, author, status) => {
-    addBook(name, author, status);
-    displayBook();
+const bookController = (arr = booksArray().getLibrary()) => {
+    displayBook(arr);
     removeBook();
     bookStatus().changeBookStatus();
 };
@@ -30,8 +29,7 @@ const booksArray = () => {
     };
 
     const changeStatus = (index, value) => {
-        console.log(myLibrary[index]);
-        // myLibrary[index].status = value;
+        myLibrary[index].status = value;
         saveMyLibrary();
     };
 
@@ -45,22 +43,17 @@ const booksArray = () => {
     };
 };
 
-// Create a new Book object - This functions loads once the page is loaded, that's why it returns if the name is falsy
+// Create a new Book object
 const addBook = (name, author, status) => {
-    if (!name) return;
-
-    booksArray().setLibrary({ name, author, status });
-    displayBook();
-    removeBook();
+    booksArray().setLibrary({ name, author, status }); // Push the object to the array
+    bookController(); // Load the DOM of the book
 };
 
 // Create a new Array from the original array and then display each item
-const displayBook = () => {
-    const booksTemplate = booksArray()
-        .getLibrary()
-        .map(
-            (book) =>
-                `
+const displayBook = (arr) => {
+    const booksTemplate = arr.map(
+        (book) =>
+            `
         <li class="books-container__item ${themeToggle()}">
             <div>
                 <h3 class="books-container__title font-400">
@@ -77,7 +70,7 @@ const displayBook = () => {
             </button>
         </li>
         `
-        );
+    );
 
     domElements().booksContainer.innerHTML = booksTemplate.join('');
 };
@@ -86,9 +79,11 @@ const removeBook = () => {
     const books = domElements().bookDelete;
 
     Array.from(books).forEach((book, index) => {
+        // Take all the delete buttons.
         book.addEventListener('click', () => {
             book.parentNode.remove();
-            booksArray().removeBook(index);
+            booksArray().removeBook(index); // Remove the element from the array.
+            bookController(); // Reset the display to match the index of the buttons with the index of the array
         });
     });
 };
@@ -102,10 +97,11 @@ const bookStatus = (book) => {
     const changeBookStatus = () => {
         const lights = domElements().statusLight;
         Array.from(lights).forEach((light, index) => {
+            // Take all the circles (lights)
             light.addEventListener('click', () => {
                 if (light.classList.contains('books-container__red')) {
-                    booksArray().changeStatus(index, true);
-                    light.classList.remove('books-container__red');
+                    booksArray().changeStatus(index, true); // Change the status in the array
+                    light.classList.remove('books-container__red'); // Change the UI
                     light.classList.add('books-container__green');
                 } else {
                     booksArray().changeStatus(index, false);
@@ -122,8 +118,4 @@ const bookStatus = (book) => {
     };
 };
 
-export { bookController };
-
-// Arreglar Index Status
-// Seleccionar Colores de filter y agregarlo a DarkMode
-// Generar display de los items filtrados.
+export { bookController, addBook };
