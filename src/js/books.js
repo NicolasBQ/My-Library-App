@@ -66,7 +66,7 @@ const displayBook = (arr) => {
             </div>
 
             <button class="books-container__delete button">
-                <img src="./img/delete.svg" alt="Delete book Button"/>
+                <div class="delete-button"></div>
             </button>
         </li>
         `
