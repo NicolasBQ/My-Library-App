@@ -1,3 +1,4 @@
+import html from '../index.html';
 import { domElements } from './domElements';
 import { themeToggle } from './darkMode';
 
